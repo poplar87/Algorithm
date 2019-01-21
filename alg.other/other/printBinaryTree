@@ -1,0 +1,59 @@
+#include <iostream>  
+    #include <deque>  
+    using namespace std;  
+    struct TNode  
+    {  
+        int element;  
+        TNode* left;  
+        TNode* right;  
+        TNode(int ele = 0, TNode* l = NULL, TNode* t= NULL)  
+            :element(ele), left(l), right(t){}  
+    };  
+    /************************************************************************/  
+    /*函数功能：将一个有序整数数组放到二叉树中                              */  
+    /************************************************************************/  
+    TNode* ConvertArrayToBinaryTree(int arr[], int current, int legth)  
+    {  
+        TNode *root = NULL;  
+        if (current < legth)  
+        {  
+            root = new TNode(arr[current]);  
+            if(2*current + 1 < legth)  
+                root->left = ConvertArrayToBinaryTree(arr, 2*current + 1, legth);  
+            if(2*current + 2 < legth)  
+                root->right = ConvertArrayToBinaryTree(arr, 2*current + 2, legth);  
+        }  
+        return root;  
+    }  
+    /************************************************************************/  
+    /* 函数功能：从顶部开始逐层打印二叉树结点数据（借助队列实现）           */  
+    /************************************************************************/  
+    void levelOutPut(TNode* root)  
+    {  
+        if(root == NULL)  
+            return;  
+        deque<TNode*> d;  
+        d.push_back(root);  
+        while(!d.empty())  
+        {  
+            cout<<d.front()->element<<" ";  
+            if(d.front()->left != NULL)  
+                d.push_back(d.front()->left);  
+            if (d.front()->right != NULL)  
+                d.push_back(d.front()->right);  
+            d.pop_front();  
+        }  
+    }  
+    int main()  
+    {  
+        int arr[10];  
+        for (int i=0; i<10; i++)  
+            arr[i] = i+10;  
+          
+        TNode *root = ConvertArrayToBinaryTree(arr, 0, sizeof(arr)/sizeof(arr[0]));  
+        char aa='1';
+        cout<<"层次输出二叉树:" << sizeof(arr) << sizeof(arr[0]) <<endl;  
+        cout<< sizeof(aa) <<endl;
+        levelOutPut(root);  
+        cout<<endl;  
+    }  
