@@ -1,0 +1,34 @@
+
+treeNode *findNearMid(treeNode** root){  
+    treeNode* ptr = *root;  
+    int min, max;  
+    while (ptr != NULL){  
+        min = ptr->data;  
+        ptr = ptr->lchild;  
+    }  
+    printf("the min is %d\n",min);  
+    ptr = *root，q;  
+    while (ptr != NULL){  
+        max = ptr->data;  
+        ptr = ptr->rchild;  
+    }  
+    printf("the max is %d\n",max);  
+    int half = (min + max) >> 1;  
+    printf("half is %d\n",half);  
+    ptr = *root;  
+    while (1){  
+        if (ptr->data < half){  
+            ptr = ptr->rchild;  
+        }  
+        else  if (ptr->data > half){  
+                q=ptr;
+                ptr=ptr->lchild;
+            }  
+        else if  (ptr->rchild!=NULL)   
+            {  
+                return (ptr->rchild);  
+            }  
+        else
+                return q;
+    }  
+}  
