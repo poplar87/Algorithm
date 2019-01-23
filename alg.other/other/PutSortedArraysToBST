@@ -1,0 +1,53 @@
+import java.io.*;
+class test  
+{
+
+	 public static void main(String args[]){
+
+        int[] array={1,2,3,4,5};
+        test tree=new test();
+        tree.printMid(tree.arrayConvertBst(array,0,array.length-1));
+
+    }
+
+
+    public void printMid(Node node){
+        if(node.left!=null){
+            printMid(node.left);
+        }
+        System.out.println(node.data);
+        if(node.right!=null){
+            printMid(node.right);
+        }
+    }
+
+    public  Node arrayConvertBst(int[] data,int start,int end){
+              if(start>end){
+                  return null;
+              }
+
+           int mid=(start+end)/2;
+        Node current=new Node(data[mid]);
+        current.left=arrayConvertBst(data,start,mid-1);
+        current.right=arrayConvertBst(data,mid+1,end);
+        return current;
+
+    }
+
+    class Node {
+        int data;
+        Node left;
+        Node right;
+        public Node(){
+
+        }
+        public Node(int data){
+            this.data=data;
+        }
+        public Node(int data,Node left,Node right){
+            this.data=data;
+            this.left=left;
+            this.right=right;
+        }
+    }
+}
