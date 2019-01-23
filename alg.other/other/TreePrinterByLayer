@@ -1,0 +1,52 @@
+public class TreePrinter {
+public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
+    ArrayList<Integer> list = new ArrayList<Integer>();
+    if (root == null) {
+        return list;
+    }
+    Queue<TreeNode> queue = new LinkedList<TreeNode>();
+    queue.add(root);
+    while (!queue.isEmpty()) {
+        TreeNode treeNode = queue.poll();
+        list.add(treeNode.val);
+        if (treeNode.left != null) {
+            queue.add(treeNode.left);
+        }
+        if (treeNode.right != null) {
+            queue.add(treeNode.right);
+        }
+    }
+    return list;
+    }
+
+
+public class TreeNode {
+int val = 0;
+TreeNode left = null;
+TreeNode right = null;
+
+public TreeNode(int val) {
+    this.val = val;
+}
+public static void main(String[] args) {
+    TreePrinter treePrinter = new TreePrinter();
+    TreeNode target1 = new TreeNode(1);
+    TreeNode target2 = new TreeNode(2);
+    TreeNode target3 = new TreeNode(3);
+    TreeNode target4 = new TreeNode(4);
+    TreeNode target5 = new TreeNode(5);
+    TreeNode target6 = new TreeNode(6);
+    TreeNode target7 = new TreeNode(7);
+    TreeNode target8 = new TreeNode(8);
+    target1.left = target2;
+    target1.right = target3;
+    target2.left = target4;
+    target5.left = target7;
+    target5.right = target8;
+    target3.left = target5;
+    target3.right = target6;
+    ArrayList<Integer> list = treePrinter.PrintFromTopToBottom(target1);
+    for (int i = 0; i < list.size(); i++) {
+        System.out.print(list.get(i));
+    }
+}
