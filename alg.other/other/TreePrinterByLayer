@@ -1,35 +1,10 @@
-public class TreePrinter {
-public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
-    ArrayList<Integer> list = new ArrayList<Integer>();
-    if (root == null) {
-        return list;
-    }
-    Queue<TreeNode> queue = new LinkedList<TreeNode>();
-    queue.add(root);
-    while (!queue.isEmpty()) {
-        TreeNode treeNode = queue.poll();
-        list.add(treeNode.val);
-        if (treeNode.left != null) {
-            queue.add(treeNode.left);
-        }
-        if (treeNode.right != null) {
-            queue.add(treeNode.right);
-        }
-    }
-    return list;
-    }
-
-
-public class TreeNode {
-int val = 0;
-TreeNode left = null;
-TreeNode right = null;
-
-public TreeNode(int val) {
-    this.val = val;
-}
-public static void main(String[] args) {
-    TreePrinter treePrinter = new TreePrinter();
+import java.io.*;
+import java.util.*;
+class test  
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+  test treePrinter = new test();
     TreeNode target1 = new TreeNode(1);
     TreeNode target2 = new TreeNode(2);
     TreeNode target3 = new TreeNode(3);
@@ -49,4 +24,33 @@ public static void main(String[] args) {
     for (int i = 0; i < list.size(); i++) {
         System.out.print(list.get(i));
     }
+	}
+	public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
+    ArrayList<Integer> list = new ArrayList<Integer>();
+    if (root == null) {
+        return list;
+    }
+    Queue<TreeNode> queue = new LinkedList<TreeNode>();
+    queue.add(root);
+    while (!queue.isEmpty()) {
+        TreeNode treeNode = queue.poll();
+        list.add(treeNode.val);
+        if (treeNode.left != null) {
+            queue.add(treeNode.left);
+        }
+        if (treeNode.right != null) {
+            queue.add(treeNode.right);
+        }
+    }
+    return list;
+    }
+    public static class TreeNode {
+int val = 0;
+TreeNode left = null;
+TreeNode right = null;
+
+public TreeNode(int val) {
+    this.val = val;
+}}
+
 }
