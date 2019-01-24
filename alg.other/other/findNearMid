@@ -3,8 +3,8 @@ treeNode *findNearMid(treeNode** root){
     treeNode* ptr = *root;  
     int min, max;  
     while (ptr != NULL){  
-        min = ptr->data;  
-        ptr = ptr->lchild;  
+       min = ptr->data;  
+       ptr = ptr->lchild;  
     }  
     printf("the min is %d\n",min);  
     ptr = *root，q;  
