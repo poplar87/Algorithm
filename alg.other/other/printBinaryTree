@@ -31,7 +31,7 @@
     void levelOutPut(TNode* root)  
     {  
         if(root == NULL)  
-            return;  
+           return;  
         deque<TNode*> d;  
         d.push_back(root);  
         while(!d.empty())  
