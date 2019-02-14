@@ -6,6 +6,7 @@
         print(data);  
     }  
 
+
 static void Merge(int arr[], int tmp[], int left, int mid, int right)
 {
 	 	int i = left;
