@@ -1,0 +1,91 @@
+  public static void main(String[] args) {  
+        int[] data = new int[] { 4, 9, 11, 8, 67, 3, 4, 2, 32 };  
+        print(data); 
+        MergeSort(data,data.length);
+        System.out.println("排序后的数组：");  
+        print(data);  
+    }  
+
+static void Merge(int arr[], int tmp[], int left, int mid, int right)
+{
+	 	int i = left;
+	 	int j = mid+1;
+	 	int idt = left;
+	 
+	 	while(i <= mid && j <= right)  // 合并两个序列 按升序
+	 	{
+	 		if (arr[i] <= arr[j])
+	 		{
+	 			tmp[idt++] = arr[i++];
+	 		}
+	 		else
+	 		{
+	 			tmp[idt++] = arr[j++];
+	 		}
+	 	}
+	 
+	 	while(i <= mid)	// 合并剩余序列
+	 	{
+	 		tmp[idt++] = arr[i++];
+	 	}
+	 
+	 	while(j <= right)// 合并剩余序列
+	 	{
+	 		tmp[idt++] = arr[j++];
+		}
+}
+ 
+static void MergePass(int arr[], int tmp[], int step, int n)
+{
+	int i = 0;
+	while (n - i >= 2 * step)
+	{   // 将两两相邻的有序子序列合并成一个2倍长度的子序列
+		Merge(arr, tmp, i, i+step-1, i+2*step-1);
+		i = i + 2 * step;
+	}
+ 
+	// 若剩余序列超过一个序列长度将再次合并不足两个序列长度的两个序列
+	if (n - i > step)	
+	{		System.out.println("i="+i+",step="+step +",n="+n+"\t");
+	print(arr); 
+	print(tmp);
+	Merge(arr, tmp, i, i+step-1, n-1);
+	print(arr);
+	 print(tmp);    
+	    
+	}
+	else   // 将剩下来的不大于一个序列长度的剩余元素并入
+	{	System.out.println("i="+i+",step="+step +",n="+n+"\t");  
+	   print(arr);  
+	    for (int j = i; j < n; j++)
+			tmp[j] = arr[j];
+			System.out.println("after\t");  
+	     print(arr);   
+	    
+	}
+	
+}
+ 
+static void MergeSort(int arr[], int n)
+{
+	int step = 1;
+	int[] tmp = new int[n];	// 申请额外的辅助空间
+	
+	while(step < n)
+	{	
+		// 将arr的元素按照step归并到tmp
+		MergePass(arr, tmp, step, n);
+		step *= 2;
+		// 将tmp的元素按照新step归并到arr
+		MergePass(tmp, arr, step, n);
+		step *= 2;	
+	}
+ 
+	
+}
+  public static void print(int[] data) {  
+        for (int i = 0; i < data.length; i++) {  
+            System.out.print(data[i] + "\t");  
+        }  
+        System.out.println();  
+    }  
