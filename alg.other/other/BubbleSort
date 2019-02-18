@@ -1,17 +1,20 @@
 import java.io.*;
 class BubbleSort  
 {
-  public static void sort(Comparable[] a)
+ public static void sort(Comparable[] a)
  { /* See Algorithms 2.1, 2.2, 2.3, 2.4, 2.5, or 2.7. */ 
      
   
   // Sort a[] into increasing order.
  int N = a.length;
- for (int i = 1; i < N; i++)
+ boolean status=true;
+ for (int i = 1; i < N&& status; i++)
  { // Insert a[i] among a[i-1], a[i-2], a[i-3]... ..
- 
+ status=false;
  for (int j = N-1; j >=i; j--)
- if(less(a[j],a[j-1]))exch(a,j,j-1);
+ {if(less(a[j],a[j-1]))exch(a,j,j-1);
+     status=true;
+ }
  }
  
  }
