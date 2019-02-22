@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+int CountZero(int N)
+{
+    int ret =0;
+    while(N)
+    {
+           ret+=N/5;
+           N/=5;
+    }
+    return ret;
+}
+
+int main()
+{
+    int N=100;
+    cout << CountZero(N) << endl;
+    return 0;
+}
