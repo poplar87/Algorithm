@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+int lowestOne(int N)
+{
+    int ret = 0;
+    while(N)
+    {
+        N >>= 1;
+        ret += N;
+    }
+    return ret+1;
+}
+
+int main()
+{
+    int N=3;
+    cout << lowestOne(N) << endl;
+    return 0;
+}
