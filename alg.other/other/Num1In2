@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+//统计无符号整型a的二进制中1的个数
+int Num1In2(int a)
+{
+	int count=0;
+	while (a>0)
+	{
+		if(a&1 == 1)
+			count++;
+		a=a>>1;//向右移1位
+	}
+	return count;
+}
+int main(void) { 
+		int m=10,n=8;
+	int temp;//保存异或运算结果
+	int num;
+	cin>>m>>n;
+	temp=m ^ n;
+	num=Num1In2(temp);
+	cout<<m<<','<<n<<endl;
+	cout<<num<<endl;
+	return 0;
+}
+/*
+int Num1In2(int a)
+{
+	int count=0;
+	while(a!=0)
+	{
+		a&=(a-1);//把a的二进制最右位置的1变成了0
+		count++;
+	}
+	return count;
+}
+*/
