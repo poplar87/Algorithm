@@ -8,7 +8,7 @@ public ListNode reverseList(ListNode head) {
             prev=cur;
             cur=temp;
         }
-        while(!st.isEmpty()){
+        while(!st.isEmpty()){ 
             System.out.println(st.pop());
         }
         return prev;
