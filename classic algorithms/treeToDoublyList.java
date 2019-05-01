@@ -38,6 +38,13 @@ class Node {
     }
 };
 */
+//Solution
+//给一棵二叉树，将它转换为双向链表。
+
+//There are two steps to solve this problem. We use a dummy node to denote the head of the start of the double linked list. 
+//Usin a global variable prev to denote the last node we visited. 
+//Using a helper which recursively in-order traversal the whole tree. Linking prev and cur node together.
+//After that, link tail node, which is prev and head node which is dummy.right.
 class Solution {
     Node prev = null;
     public Node treeToDoublyList(Node root) {
