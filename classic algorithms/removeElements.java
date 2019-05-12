@@ -5,7 +5,12 @@
  *     ListNode *next;
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
+ 82. Remove Duplicates from Sorted List II
+ 83. Remove Duplicates from Sorted List
+ 203	Remove Linked List Elements     
  */
+
+
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
