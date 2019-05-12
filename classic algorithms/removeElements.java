@@ -10,7 +10,6 @@
  203	Remove Linked List Elements     
  */
 
-
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
