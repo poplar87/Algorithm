@@ -28,7 +28,6 @@ public:
     }
 };
 
-
  public ListNode removeElements(ListNode head, int val) {
         ListNode fakeHead = new ListNode(-1);
         fakeHead.next = head;
