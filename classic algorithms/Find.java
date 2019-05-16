@@ -1,4 +1,5 @@
- public static boolean Find(int target, int [][] array) {
+//240. Search a 2D Matrix II
+public static boolean Find(int target, int [][] array) {
        boolean find=false;
         int cols=array[0].length;
         int rows=array.length;
