@@ -8,7 +8,7 @@ public int findKthLargest(int[] nums, int k) {
     final PriorityQueue<Integer> pq = new PriorityQueue<>(nums.length,new Comparator<Integer>(){
         @Override
        public int compare(Integer i1,Integer i2){
-            return i2-i1;//maximum heap findLeastKElements; i1-i2 min heap  findLargestKElements
+            return i2-i1;//maximum heap findLeastKElements;default is minheap i1-i2 min heap  findLargestKElements
         }
         
     });
