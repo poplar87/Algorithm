@@ -6,6 +6,39 @@
 
 Solution one：
 quicksort
+ public int findKthLargest(int[] nums, int k) {
+        int l=0,h=nums.length-1;
+        int j=partition(nums,nums.length,l,h);
+        k=nums.length-k;
+        while(j!=k){
+            if(j<k)l=j+1;
+            else if(j>k)h=j-1;
+            j=partition(nums,nums.length,l,h);
+        }
+        return nums[k];
+    }
+    public int partition(int[] nums,int len,int l,int h){
+        if(nums==null||len<=0||l<0||h>=len) return 0;
+        //int pivort=nums[h];
+        int pivort = new Random().nextInt(h-l+1) + l;
+        swap(nums,pivort,h);
+        int i=l-1;
+        for(int j=l;j<h;j++){
+            if(nums[j]<nums[h])
+            {i++;
+            swap(nums,i,j);
+            }
+        }
+        ++i;
+        swap(nums,i,h);
+        return i;
+    }
+    public void swap(int[] nums, int i,int j){
+        int temp=nums[i];
+        nums[i]=nums[j];
+        nums[j]=temp;
+    }
+
 Solution two：
 public int findKthLargest(int[] nums, int k) {
     final PriorityQueue<Integer> pq = new PriorityQueue<>(nums.length,new Comparator<Integer>(){
@@ -29,3 +62,6 @@ public int findKthLargest(int[] nums, int k) {
         return 0;
    // return pq.peek();
     }
+    
+
+
