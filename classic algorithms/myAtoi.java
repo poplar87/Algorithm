@@ -1,4 +1,5 @@
- public int myAtoi(String str) {
+//8	 String to Integer (atoi)   
+public int myAtoi(String str) {
         // empry string 
         if(str==null||str.length()<=0)return 0;
         char[] str1=str.toCharArray();
