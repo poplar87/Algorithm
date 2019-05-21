@@ -18,5 +18,5 @@ public int myAtoi(String str) {
         }
         base  = 10 * base + (str1[i++] - '0');
     }
-    return base * sign;
+   return base * sign;
     }
